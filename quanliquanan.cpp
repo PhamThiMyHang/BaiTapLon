@@ -1083,6 +1083,15 @@ void MenuChuQuan(){
 	printf("12. Hien Menu tuy chon\n ");
 	printf("13. Thoat khoi vai tro chu quan\n ");
 }
+
+void MenuKhach(){
+	printf("1. Xem Menu.\n ");
+	printf("2. Chon ban.\n ");
+	printf("3. Chon mon.\n ");
+	printf("4. Chot goi mon.\n ");
+	printf("5. Thoat khoi vai tro khach\n ");
+}
+
 void dangnhapMenu(){
 	printf("1. Dang nhap voi tu cach Chu quan.\n ");
 	printf("2. Dang nhap voi tu cach khach hang.\n ");
@@ -1136,11 +1145,13 @@ int main(){
 				printf("Chua co du lieu so ban.\n ");
 			}else{
 				printf("Da co du lieu so ban.\n ");
-			}do{
+			}
+			MenuChuQuan();
+			do{
 			do{
 				scanf("%d",&choice);
 				fflush(stdin);
-			}while(choice<1||choice>3);
+			}while(choice<1||choice>13);
 			switch(choice){
 				case 1:{//Tao thuc son moi
 					ListFood(&f,&n);
@@ -1217,13 +1228,18 @@ int main(){
 			break;
 		}
 		case 2:{
+			MenuKhach();
 			do{
 			do{
 				scanf("%d",&choice);
 				fflush(stdin);
-			}while(choice<1||choice>3);
+			}while(choice<1||choice>5);
 			switch (choice){
 				case 1:{
+					XuatMenuFood();
+					break;
+				}
+				case 2:{
 					if(m==0){
 						printf("Khong co so ban de chon\n ");
 						choice= 4;
@@ -1232,7 +1248,7 @@ int main(){
 					}
 					break;
 				}
-				case 2:{
+				case 3:{
 					if(j==0){
 						printf("Vui long chon ban truoc khi chon mon an\n ");
 						choice=5;
@@ -1244,7 +1260,7 @@ int main(){
 				
 					break;
 				}
-				case 3:{
+				case 4:{
 					if(Max==0){
 						printf("Vui long chon mon\n ");
 						printf("Nhap 6: \n ");
@@ -1253,13 +1269,13 @@ int main(){
 					}
 					break;
 				}
-				case 4:{
+				case 5:{
 					printf("Thoat voi vai tro la khach\n ");
 					choice=4;
 					break;
 				}
 			}
-		}while(choice!=4);
+		}while(choice!=5);
 			break;
 		}
 		case 3:{
